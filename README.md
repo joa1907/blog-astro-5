@@ -15,6 +15,8 @@ Tailwind CSS – Para el diseño.
 1-Clona el repositorio:
 ```
     git clone https://github.com/joa1907/blog-astro-5.git
+```
+```  
     cd blog-astro-5
 ```
 2-Instala las dependencias:
