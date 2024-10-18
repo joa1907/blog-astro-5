@@ -13,8 +13,11 @@ Cada tarjeta lleva a una página con más detalles.
 🛠️ Tecnologías
 
 Astro 5 – Para crear un sitio rápido.
+
 Markdown – Para escribir las recomendaciones.
+
 Tailwind CSS – Para el diseño.
+
 
 
 📦 Instalación
