@@ -1,0 +1,21 @@
+---
+const ARG = 'AR'
+
+const country = Astro.request.headers.get('X-Vercel-IP-Country') ?? 'AR'
+
+const storeCountry = country === ARG ? 'arg' : 'usa'
+const countryName = country === ARG ? 'LaComiqueria' : 'Amazon'
+
+const { buy } = Astro.props
+const url = buy[storeCountry]
+---
+
+<a 
+   href={url}
+   title="Comprar manga"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="text-balance inline-flex gap-2 items-center bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-black font-bold py-2 px-10 rounded-lg border border-yellow-500 transition duration-200 ease-in-out hover:scale-105 justify-center text-center"
+   >
+   Comprar en {countryName}
+</a>
