@@ -1,16 +1,16 @@
-📚 Blog de Recomendaciones de Mangas
+📚 **Blog de Recomendaciones de Mangas**
 
 ¡Bienvenido a mi pequeño blog! Aquí comparto mangas que me gustan, hecho con Astro 5 y estilos con Tailwind CSS.
 
 
-🚀 ¿De qué trata?
+🚀 **¿De qué trata?**
 
 Este es un blog donde cada recomendación se guarda en archivos markdown. Estos archivos están en la carpeta books, y el sitio genera automáticamente tarjetas para cada uno.
 
 Cada tarjeta lleva a una página con más detalles.
 
 
-🛠️ Tecnologías
+🛠️ **Tecnologías**
 
 Astro 5 – Para crear un sitio rápido.
 
@@ -20,7 +20,7 @@ Tailwind CSS – Para el diseño.
 
 
 
-📦 Instalación
+📦 **Instalación**
 
 1- Clona el repositorio:
 ```
@@ -42,6 +42,6 @@ Tailwind CSS – Para el diseño.
 Abre http://localhost:4321 en tu navegador y ¡listo!
 
 
-🌟 Inspiración
+🌟 **Inspiración**
 
 Este blog fue hecho en base a un video de midudev.
