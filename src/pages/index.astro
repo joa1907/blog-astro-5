@@ -2,8 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const books = await getCollection('books');
-export const prerender =  true
+const books = await getCollection("books");
+export const prerender = true;
 ---
 
 <Layout title="Mangas">
@@ -14,20 +14,24 @@ export const prerender =  true
   </main>
 
   <section aria-label="Mangas recomendados">
-    <div class="px-4 mx-auto max-w-screen-xl">
+    <div class="px-6 mx-auto max-w-screen-xl">
       <div class="grid gap-6 md:grid-cols-2">
         {
           books.map((book) => {
-            const {slug, data} = book
-            const {title, author, img, readtime, description ,buy} = data   
+            const { slug, data } = book;
+            const { title, author, img, readtime, description, buy } = data;
             return (
-              <article class="flex">
-                <a href={`/manga/${slug}`} class="mb-2 xl:mb-0 transition hover:scale-110">
-                  <img 
-                  transition:name={`img-${slug}`} 
-                  src={`/${img}`} 
-                  alt={title} 
-                  class="rounded mr-5 w-44"/>
+              <article class="flex flex-wrap justify-center sm:justify-normal gap-4 mb-8">
+                <a
+                  href={`/manga/${slug}`}
+                  class="mb-2 xl:mb-0 transition hover:scale-110"
+                >
+                  <img
+                    transition:name={`img-${slug}`}
+                    src={`/${img}`}
+                    alt={title}
+                    class="rounded mr-5 sm:w-44"
+                  />
                 </a>
                 <div class="flex flex-col justify-center">
                   <h2 class="mb-2 text-2xl font-bold leading-tight text-white">
@@ -37,8 +41,8 @@ export const prerender =  true
                   <span class="text-xs">Autor: {author}</span>
                   <span class="text-xs">Lectura en {readtime} minutos</span>
                 </div>
-              </article>  
-            )
+              </article>
+            );
           })
         }
       </div>

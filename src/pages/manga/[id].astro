@@ -1,50 +1,52 @@
 ---
 import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro"
+import Layout from "../../layouts/Layout.astro";
 import { SHOW_BUY_BUTTON } from "astro:env/server";
 import BookScore from "../../components/BookScore.astro";
 import BuyButton from "../../components/BuyButton.astro";
 
-export async function getStaticPaths(){
-    const books = await getCollection('books')
+export async function getStaticPaths() {
+  const books = await getCollection("books");
 
-    return books.map((book) => (
-    {
-    params: {id: book.slug},
-    props: {book}
-}))
+  return books.map((book) => ({
+    params: { id: book.slug },
+    props: { book },
+  }));
 }
 
-const {book} = Astro.props
-const {data, slug} = book
-const {title, author, img ,readtime, description, buy} = data
+const { book } = Astro.props;
+const { data, slug } = book;
+const { title, author, img, readtime, description, buy } = data;
 
-const { Content } = await render(book)
+const { Content } = await render(book);
 
-export const prerender = true
+export const prerender = true;
 ---
 
 <Layout title={`${title} - Manga`}>
-    <div class="flex gap-12">
-        <aside class="flex flex-col items-center gap-4">
-            <a href="/" class="hover:underline opacity-70">⬅ Volver</a>
-            <img 
-            transition:name={`img-${slug}`} 
-            class="rounded w-72 h-auto" 
-            src=`/${img}` alt={title} /> 
-            <BookScore server:defer id={slug}>
-                <span slot="fallback" class="text-xs" id="score">⭐ Puntuación: -/5</span>
-            </BookScore>
-            {
-                SHOW_BUY_BUTTON && <BuyButton server:defer buy={buy}/>
-            }
-        </aside>
-        <main class="max-w-3xl">
-            <h1 class="text-4xl font-bold mb-4">{title}</h1>
-            <div class="prose prose-invert">
-                <Content/>
-            </div>
-        </main>
-
-    </div>
+  <div
+    class="flex flex-wrap md:flex-nowrap justify-center md:justify-normal p-6 gap-12"
+  >
+    <aside class="flex flex-col items-center gap-4 sm:w-auto w-full">
+      <a href="/" class="hover:underline opacity-70">⬅ Volver</a>
+      <img
+        transition:name={`img-${slug}`}
+        class="rounded sm:w-72 h-auto w-full"
+        src=`/${img}`
+        alt={title}
+      />
+      <BookScore server:defer id={slug}>
+        <span slot="fallback" class="text-xs" id="score"
+          >⭐ Puntuación: -/5</span
+        >
+      </BookScore>
+      {SHOW_BUY_BUTTON && <BuyButton server:defer buy={buy} />}
+    </aside>
+    <main class="max-w-3xl md:mt-9">
+      <h1 class="text-4xl font-bold mb-4">{title}</h1>
+      <div class="prose prose-invert">
+        <Content />
+      </div>
+    </main>
+  </div>
 </Layout>
